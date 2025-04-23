@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbope-service
+  namespace: backend-services
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbope-service
+  template:
+    metadata:
+      labels:
+        app: dbope-service
+    spec:
+      containers:
+      - name: dbope-service
+        image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend3:10  # Replaced by sed in pipeline
+        ports:
+          - containerPort: 8000
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recomendation-service
+  namespace: backend-services
+  labels:
+    app: recomendation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recomendation-service
+  template:
+    metadata:
+      labels:
+        app: recomendation-service
+    spec:
+      containers:
+      - name: recomendation-service
+        image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend2:8
+        ports:
+        - containerPort: 8002
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8002
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8002
+          initialDelaySeconds: 10
+          periodSeconds: 10
+

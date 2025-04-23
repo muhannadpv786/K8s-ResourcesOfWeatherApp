@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: getweatherservice-service
+  namespace: backend-services
+
+spec:
+  selector:
+    app: getweatherservice
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8001
+  type: ClusterIP
+
