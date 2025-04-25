@@ -17,7 +17,7 @@ spec:
       - name: dbope-service
         image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend3:10  # Replaced by sed in pipeline
         ports:
-          - containerPort: 8000
+        - containerPort: 8000
         resources:
           requests:
             cpu: "250m"
@@ -25,4 +25,12 @@ spec:
           limits:
             cpu: "500m"
             memory: "1Gi"
+        volumeMounts:
+        - name: env-volume
+          mountPath: /app/.env
+          subPath: .env
+      volumes:
+      - name: env-volume
+        secret:
+          secretName: envfordbope-service
 

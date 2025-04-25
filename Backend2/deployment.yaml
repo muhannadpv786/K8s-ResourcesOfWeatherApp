@@ -39,4 +39,12 @@ spec:
             port: 8002
           initialDelaySeconds: 10
           periodSeconds: 10
+        volumeMounts:
+        - name: env-volume
+          mountPath: /app/.env      # Your app reads /app/.env
+          subPath: .env             # This maps only the .env file
+      volumes:
+      - name: env-volume
+        secret:
+          secretName: envforrecommendation
 
