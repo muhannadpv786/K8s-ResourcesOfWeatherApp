@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: recomendation-service
-        image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend2:8
+        image: 279707218273.dkr.ecr.ap-south-1.amazonaws.com/backend2
         ports:
         - containerPort: 8002
         resources:
