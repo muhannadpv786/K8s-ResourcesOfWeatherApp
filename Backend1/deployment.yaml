@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: getweatherservice
-        image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend1:8
+        image: 279707218273.dkr.ecr.ap-south-1.amazonaws.com/backend1
         ports:
         - containerPort: 8001
         resources:
