@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: dbope-service
-        image: 650089658128.dkr.ecr.ap-south-1.amazonaws.com/backend3:10  # Replaced by sed in pipeline
+        image: 279707218273.dkr.ecr.ap-south-1.amazonaws.com/backend3  # Replaced by sed in pipeline
         ports:
         - containerPort: 8000
         resources:
